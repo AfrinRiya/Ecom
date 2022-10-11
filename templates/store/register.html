@@ -1,0 +1,55 @@
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">   
+</head>
+
+<body>
+
+    <br><br>
+    
+<div class="reg">
+
+
+<h2  style="color: white;">Register</h2>
+{%if error%}
+<h3  style="color: red;">{{error}}</h3>
+{%endif%}
+
+<hr>
+<br>
+
+    <form id="reg" method="POST" action="{%url 'register'%}">
+       {% csrf_token %}
+        <label><b> Name
+            </b>
+        </label>
+        <br>
+        <input type="text" name="Uname" id="name" placeholder="Username">
+        <br><br>
+        <label ><b>Email:</b></label>
+        <input type="email" id="email" name="email"placeholder="Email">
+
+<br><br>
+
+
+        <label><b>Password
+            </b>
+        </label>
+        
+        <input type="Password" name="Pass1" id="Pass1" placeholder="Password">
+
+<br><br>
+        <label><b>Confirm Password
+            </b>
+        </label>
+        
+        <input type="Password" name="Pass2" id="Pass2" placeholder="Password">
+        <br><br>
+        <button type="submit" name="log" id="log" value="register">REGISTER</button>
+        <br><br>
+
+    </form>
+</div>
+</body>
+{% endblock content %}
