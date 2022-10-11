@@ -1,0 +1,52 @@
+{% load static %}
+{% block content %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body >
+
+
+  <br>
+
+<div class="login">
+    <h2 style="color: white;">Login</h2>
+  {%if error%}
+    <h3 style="color: red;">{{error}}</h3>
+    {%endif%}  
+  <hr>
+  <br>
+    <form id="login" method="POST" action="{%url 'login'%}">
+         {% csrf_token %}
+        <label><b>User Name
+            </b>
+        </label>
+        
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br><br>
+
+        <label ><b>Email:</b></label>
+        <input type="email" id="email" name="email"placeholder="Email">
+
+<br><br>
+
+
+        <label><b>Password
+            </b>
+        </label>
+        
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br><br>
+        
+        <button type="submit" name="log" id="log" >LogIn </button>
+        <br><br>
+        <p style="color:white">Don't have an account?</p>
+        <br>
+       
+
+        <a  style="color: rgb(118, 118, 202);"href="{%url 'register' %}">Create An Account</a>
+    </form>
+</div>
+</body>
+
+{% endblock content %}
